@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Libreria</title>
+</head>
+<body>
+<!-- Contact Section-->
+<section th:fragment="formulario" class="py-4 mb-4 bg-light">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Contact Section Form-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <!-- Formulario Thymeleaf -->
+                <form id="contactForm" th:action="@{/submitContactForm}" th:object="${contactForm}" method="post">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." th:field="*{name}" />
+                        <label for="name">Full name</label>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" th:field="*{email}" />
+                        <label for="email">Email address</label>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" th:field="*{phone}" />
+                        <label for="phone">Phone number</label>
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3">
+                        <label for="message">Message</label>
+                    </div>
+                    <!-- Submit Button-->
+                    <button class="btn btn-primary btn-xl" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
